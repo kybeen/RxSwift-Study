@@ -14,16 +14,10 @@
 		B80806B52B46DADD00299F9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B80806B32B46DADD00299F9F /* LaunchScreen.storyboard */; };
 		B80806BE2B46DD8D00299F9F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B80806BD2B46DD8D00299F9F /* SnapKit */; };
 		B80806C02B46DD8D00299F9F /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = B80806BF2B46DD8D00299F9F /* SnapKit-Dynamic */; };
-		B80806C32B46DE1F00299F9F /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = B80806C22B46DE1F00299F9F /* RxBlocking */; };
-		B80806C52B46DE1F00299F9F /* RxBlocking-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = B80806C42B46DE1F00299F9F /* RxBlocking-Dynamic */; };
 		B80806C72B46DE1F00299F9F /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = B80806C62B46DE1F00299F9F /* RxCocoa */; };
 		B80806C92B46DE1F00299F9F /* RxCocoa-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = B80806C82B46DE1F00299F9F /* RxCocoa-Dynamic */; };
-		B80806CB2B46DE1F00299F9F /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = B80806CA2B46DE1F00299F9F /* RxRelay */; };
-		B80806CD2B46DE1F00299F9F /* RxRelay-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = B80806CC2B46DE1F00299F9F /* RxRelay-Dynamic */; };
 		B80806CF2B46DE1F00299F9F /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B80806CE2B46DE1F00299F9F /* RxSwift */; };
 		B80806D12B46DE1F00299F9F /* RxSwift-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = B80806D02B46DE1F00299F9F /* RxSwift-Dynamic */; };
-		B80806D32B46DE1F00299F9F /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = B80806D22B46DE1F00299F9F /* RxTest */; };
-		B80806D52B46DE1F00299F9F /* RxTest-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = B80806D42B46DE1F00299F9F /* RxTest-Dynamic */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,17 +36,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B80806CF2B46DE1F00299F9F /* RxSwift in Frameworks */,
-				B80806CD2B46DE1F00299F9F /* RxRelay-Dynamic in Frameworks */,
 				B80806BE2B46DD8D00299F9F /* SnapKit in Frameworks */,
-				B80806C32B46DE1F00299F9F /* RxBlocking in Frameworks */,
-				B80806CB2B46DE1F00299F9F /* RxRelay in Frameworks */,
 				B80806C72B46DE1F00299F9F /* RxCocoa in Frameworks */,
-				B80806D52B46DE1F00299F9F /* RxTest-Dynamic in Frameworks */,
-				B80806D32B46DE1F00299F9F /* RxTest in Frameworks */,
 				B80806D12B46DE1F00299F9F /* RxSwift-Dynamic in Frameworks */,
 				B80806C02B46DD8D00299F9F /* SnapKit-Dynamic in Frameworks */,
 				B80806C92B46DE1F00299F9F /* RxCocoa-Dynamic in Frameworks */,
-				B80806C52B46DE1F00299F9F /* RxBlocking-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,16 +95,10 @@
 			packageProductDependencies = (
 				B80806BD2B46DD8D00299F9F /* SnapKit */,
 				B80806BF2B46DD8D00299F9F /* SnapKit-Dynamic */,
-				B80806C22B46DE1F00299F9F /* RxBlocking */,
-				B80806C42B46DE1F00299F9F /* RxBlocking-Dynamic */,
 				B80806C62B46DE1F00299F9F /* RxCocoa */,
 				B80806C82B46DE1F00299F9F /* RxCocoa-Dynamic */,
-				B80806CA2B46DE1F00299F9F /* RxRelay */,
-				B80806CC2B46DE1F00299F9F /* RxRelay-Dynamic */,
 				B80806CE2B46DE1F00299F9F /* RxSwift */,
 				B80806D02B46DE1F00299F9F /* RxSwift-Dynamic */,
-				B80806D22B46DE1F00299F9F /* RxTest */,
-				B80806D42B46DE1F00299F9F /* RxTest-Dynamic */,
 			);
 			productName = RxSwiftStudy;
 			productReference = B80806A52B46DADB00299F9F /* RxSwiftStudy.app */;
@@ -422,16 +404,6 @@
 			package = B80806BC2B46DD8D00299F9F /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = "SnapKit-Dynamic";
 		};
-		B80806C22B46DE1F00299F9F /* RxBlocking */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B80806C12B46DE1F00299F9F /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxBlocking;
-		};
-		B80806C42B46DE1F00299F9F /* RxBlocking-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B80806C12B46DE1F00299F9F /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = "RxBlocking-Dynamic";
-		};
 		B80806C62B46DE1F00299F9F /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B80806C12B46DE1F00299F9F /* XCRemoteSwiftPackageReference "RxSwift" */;
@@ -442,16 +414,6 @@
 			package = B80806C12B46DE1F00299F9F /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = "RxCocoa-Dynamic";
 		};
-		B80806CA2B46DE1F00299F9F /* RxRelay */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B80806C12B46DE1F00299F9F /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxRelay;
-		};
-		B80806CC2B46DE1F00299F9F /* RxRelay-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B80806C12B46DE1F00299F9F /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = "RxRelay-Dynamic";
-		};
 		B80806CE2B46DE1F00299F9F /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B80806C12B46DE1F00299F9F /* XCRemoteSwiftPackageReference "RxSwift" */;
@@ -461,16 +423,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B80806C12B46DE1F00299F9F /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = "RxSwift-Dynamic";
-		};
-		B80806D22B46DE1F00299F9F /* RxTest */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B80806C12B46DE1F00299F9F /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxTest;
-		};
-		B80806D42B46DE1F00299F9F /* RxTest-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B80806C12B46DE1F00299F9F /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = "RxTest-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
