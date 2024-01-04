@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else {return}
         window = UIWindow(windowScene: windowScene) // SceneDelegate의 window 프로퍼티에 설정해줌 windowScene을 대입해줌
         
-        let mainViewController = ViewController()
+        let mainViewController = TestViewController()
         window?.rootViewController = mainViewController // rootViewController -> Is Initial View Controller 설정
         window?.makeKeyAndVisible() // 화면에 표시
     }

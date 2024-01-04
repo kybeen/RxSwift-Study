@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		B80806A92B46DADB00299F9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80806A82B46DADB00299F9F /* AppDelegate.swift */; };
 		B80806AB2B46DADB00299F9F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80806AA2B46DADB00299F9F /* SceneDelegate.swift */; };
-		B80806AD2B46DADB00299F9F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80806AC2B46DADB00299F9F /* ViewController.swift */; };
 		B80806B22B46DADD00299F9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B80806B12B46DADD00299F9F /* Assets.xcassets */; };
 		B80806B52B46DADD00299F9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B80806B32B46DADD00299F9F /* LaunchScreen.storyboard */; };
 		B80806BE2B46DD8D00299F9F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B80806BD2B46DD8D00299F9F /* SnapKit */; };
@@ -18,16 +17,19 @@
 		B80806C92B46DE1F00299F9F /* RxCocoa-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = B80806C82B46DE1F00299F9F /* RxCocoa-Dynamic */; };
 		B80806CF2B46DE1F00299F9F /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B80806CE2B46DE1F00299F9F /* RxSwift */; };
 		B80806D12B46DE1F00299F9F /* RxSwift-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = B80806D02B46DE1F00299F9F /* RxSwift-Dynamic */; };
+		B80806D92B46E21700299F9F /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80806D82B46E21700299F9F /* TestView.swift */; };
+		B80806DB2B46E22900299F9F /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80806DA2B46E22900299F9F /* TestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B80806A52B46DADB00299F9F /* RxSwiftStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B80806A82B46DADB00299F9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B80806AA2B46DADB00299F9F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B80806AC2B46DADB00299F9F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B80806B12B46DADD00299F9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B80806B42B46DADD00299F9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B80806B62B46DADD00299F9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B80806D82B46E21700299F9F /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		B80806DA2B46E22900299F9F /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +70,8 @@
 			children = (
 				B80806A82B46DADB00299F9F /* AppDelegate.swift */,
 				B80806AA2B46DADB00299F9F /* SceneDelegate.swift */,
-				B80806AC2B46DADB00299F9F /* ViewController.swift */,
+				B80806D82B46E21700299F9F /* TestView.swift */,
+				B80806DA2B46E22900299F9F /* TestViewController.swift */,
 				B80806B12B46DADD00299F9F /* Assets.xcassets */,
 				B80806B32B46DADD00299F9F /* LaunchScreen.storyboard */,
 				B80806B62B46DADD00299F9F /* Info.plist */,
@@ -158,8 +161,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B80806AD2B46DADB00299F9F /* ViewController.swift in Sources */,
+				B80806D92B46E21700299F9F /* TestView.swift in Sources */,
 				B80806A92B46DADB00299F9F /* AppDelegate.swift in Sources */,
+				B80806DB2B46E22900299F9F /* TestViewController.swift in Sources */,
 				B80806AB2B46DADB00299F9F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
