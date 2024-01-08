@@ -68,8 +68,6 @@ final class TestViewController: UIViewController {
      5. Disposed
      */
     func downloadJSON(_ url: String) -> Observable<String?> {
-//        return Observable.just("Hello World") // 📌 just() : 1개 값을 전달
-//        return Observable.from(["Hello", "World"]) // 📌 from() : 배열의 각 원소를 전달
         
         return Observable.create { emitter in
             let url = URL(string: url)!
@@ -96,42 +94,23 @@ final class TestViewController: UIViewController {
     
     // MARK: SYNC
 
-    // ✅ Operator
     @objc private func onLoad() {
         testView.editView.text = ""
         self.testView.activityIndicator.startAnimating()
         
-        downloadJSON(MEMBER_LIST_URL)
+        let jsonObservable = downloadJSON(MEMBER_LIST_URL)
+        let helloObservable = Observable.just("Hello World")
+        
+        // 📌 zip() : Observable 별로 생성되는 데이터들을 순서대로 쌍으로 묶어서 방출
+        Observable.zip(jsonObservable, helloObservable) { $1 + "\n" + $0! }
             .debug()
-            .map { json in // 📌 .map() : 스위프트 고차함수 map과 동일하게 사용할 수 있는 operator
-                json?.count ?? 0
-            }
-            .filter { cnt in cnt > 0 } // 📌 .filter() : 스위프트 고차함수 filter과 동일하게 사용할 수 있는 operator
-            .map { "\($0)" }
-            .observe(on: MainScheduler.instance) // 📌 observe(on:) : 특정 스케줄러에서 동작하도록 지정 (MainScheduler.instance : 메인스레드에서 동작)
-            .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .default)) // 📌 subscribe(on:) : (위치랑 상관 없음) 첫번째 동작을 무슨 쓰레드에서 진행할 지 지정
+            .observe(on: MainScheduler.instance)
             .subscribe(
                 onNext: { json in
                     self.testView.editView.text = json
                     self.testView.activityIndicator.stopAnimating()
                 }
             )
+            .disposed(by: disposeBag)
     }
 }
-
-//// MARK: - 프리뷰 canvas 세팅
-//import SwiftUI
-//
-//struct TestViewControllerRepresentable: UIViewControllerRepresentable {
-//    typealias UIViewControllerType = TestViewController
-//    func makeUIViewController(context: Context) -> TestViewController {
-//        return TestViewController()
-//    }
-//    func updateUIViewController(_ uiViewController: TestViewController, context: Context) {}
-//}
-//@available(iOS 13.0.0, *)
-//struct LoginViewPreview: PreviewProvider {
-//    static var previews: some View {
-//        TestViewControllerRepresentable()
-//    }
-//}
