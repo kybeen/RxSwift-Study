@@ -80,12 +80,12 @@ final class TestViewController: UIViewController {
         
         downloadJSON(MEMBER_LIST_URL)
             .debug()
+            .observe(on: MainScheduler.instance) // 📌 operator : 데이터가 전달되는 중간에 처리해주는 메서드
             .subscribe(
-                onNext: { print($0) },
-                onError: { err in
-                    print(err)
-                },
-                onCompleted: { print("Completed") }
+                onNext: { json in
+                    self.testView.editView.text = json
+                    self.testView.activityIndicator.stopAnimating()
+                }
             )
     }
 }
