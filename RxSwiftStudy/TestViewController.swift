@@ -68,47 +68,7 @@ final class TestViewController: UIViewController {
      5. Disposed
      */
     func downloadJSON(_ url: String) -> Observable<String?> {
-        // 1. 비동기로 생기는 데이터를 Observable(나중에 생기는 데이터)로 감싸서 리턴하는 방법
-        return Observable.create { emitter in
-            let url = URL(string: url)!
-            let task = URLSession.shared.dataTask(with: url) { data, _, err in
-                guard err == nil else {
-                    emitter.onError(err!) // 에러 발생 시 onError로 이벤트 전달
-                    return
-                }
-                
-                // 데이터가 있으면 onNext로 이벤트 전달
-                if let dat = data, let json = String(data: dat, encoding: .utf8) {
-                    emitter.onNext(json)
-                }
-                
-                // 작업이 완료되면 onCompleted로 이벤트 전달
-                emitter.onCompleted()
-            }
-            
-            task.resume()
-            
-            return Disposables.create() {
-                // 취소 시 동작
-                task.cancel()
-            }
-        }
-        
-        
-//        return Observable.create() { f in
-//            DispatchQueue.global().async {
-//                let url = URL(string: url)!
-//                let data = try! Data(contentsOf: url)
-//                let json = String(data: data, encoding: .utf8)
-//                
-//                DispatchQueue.main.async {
-//                    f.onNext(json)
-//                    f.onCompleted() // completed, error 이벤트 시 subscribe에 대한 클로저가 사라지기 때문에 값 전달 후 completed를 시켜주면서 순환 참조를 방지해줄 수 있다.
-//                }
-//            }
-//            
-//            return Disposables.create()
-//        }
+        return Observable.just("Hello World") // 📌 just() : 1개 값을 전달
     }
     
     // MARK: SYNC
@@ -122,11 +82,8 @@ final class TestViewController: UIViewController {
             .debug()
             .subscribe() { event in // subscribe에 의해 Disposable이 리턴 (이후 필요에 따라서 취소시켜준다.)
                 switch event {
-                case .next(let json):
-                    DispatchQueue.main.async {
-                        self.testView.editView.text = json
-                        self.testView.activityIndicator.stopAnimating()
-                    }
+                case .next(let t):
+                    print(t)
                     
                 case .error(let err):
                     break
