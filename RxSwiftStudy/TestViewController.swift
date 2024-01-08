@@ -68,7 +68,8 @@ final class TestViewController: UIViewController {
      5. Disposed
      */
     func downloadJSON(_ url: String) -> Observable<String?> {
-        return Observable.just("Hello World") // 📌 just() : 1개 값을 전달
+//        return Observable.just("Hello World") // 📌 just() : 1개 값을 전달
+        return Observable.from(["Hello", "World"]) // 📌 from() : 배열의 각 원소를 전달
     }
     
     // MARK: SYNC
