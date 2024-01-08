@@ -96,7 +96,7 @@ final class TestViewController: UIViewController {
     
     // MARK: SYNC
 
-    // ✅ Operator : 데이터가 전달되는 중간에 처리해주는 메서드
+    // ✅ Operator
     @objc private func onLoad() {
         testView.editView.text = ""
         self.testView.activityIndicator.startAnimating()
