@@ -57,19 +57,6 @@ final class TestViewController: UIViewController {
         - 나중에생기는데이터: `Observable`
         - 나중에오면: `subscribe()`
      */
-//    func downloadJSON(_ url: String) -> 나중에생기는데이터<String?> {
-//        return 나중에생기는데이터 { f in
-//            DispatchQueue.global().async {
-//                let url = URL(string: url)!
-//                let data = try! Data(contentsOf: url)
-//                let json = String(data: data, encoding: .utf8)
-//                
-//                DispatchQueue.main.async {
-//                    f(json)
-//                }
-//            }
-//        }
-//    }
     
     /**
      ✅ `Observable`의 생명주기
@@ -130,13 +117,6 @@ final class TestViewController: UIViewController {
         testView.editView.text = ""
         self.testView.activityIndicator.startAnimating()
         
-//        let json: 나중에생기는데이터<String?> = downloadJSON(MEMBER_LIST_URL)
-//        
-//        json.나중에오면 { json in
-//            self.testView.editView.text = json
-//            self.testView.activityIndicator.stopAnimating()
-//        }
-        
         // 2. Observable로 오는 데이터를 받아서 처리하는 방법
         downloadJSON(MEMBER_LIST_URL)
             .debug()
@@ -156,22 +136,6 @@ final class TestViewController: UIViewController {
                     
                 }
             }
-        
-//        downloadJSON(MEMBER_LIST_URL)
-//            .debug() // 데이터가 전달되는 동안 어떤 데이터가 전달되는지 콘솔에 찍힘
-//            .subscribe { event in // 비동기적으로 받아온 값(Observable)이 오면 처리되는 부분
-//                switch event {
-//                case .next(let json): // 📌데이터가 전달될 때
-//                    DispatchQueue.main.async {
-//                        self.testView.editView.text = json
-//                        self.testView.activityIndicator.stopAnimating()
-//                    }
-//                case .completed: // 📌데이터가 다 전달되고 끝났을 때
-//                    break
-//                case .error: // 📌에러났을 때
-//                    break
-//                }
-//            }
     }
 }
 
