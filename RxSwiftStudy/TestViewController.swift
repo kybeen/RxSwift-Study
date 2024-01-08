@@ -78,22 +78,15 @@ final class TestViewController: UIViewController {
         testView.editView.text = ""
         self.testView.activityIndicator.startAnimating()
         
-        // 2. Observable로 오는 데이터를 받아서 처리하는 방법
         downloadJSON(MEMBER_LIST_URL)
             .debug()
-            .subscribe() { event in // subscribe에 의해 Disposable이 리턴 (이후 필요에 따라서 취소시켜준다.)
-                switch event {
-                case .next(let t):
-                    print(t)
-                    
-                case .error(let err):
-                    break
-                    
-                case .completed:
-                    break
-                    
-                }
-            }
+            .subscribe(
+                onNext: { print($0) },
+                onError: { err in
+                    print(err)
+                },
+                onCompleted: { print("Completed") }
+            )
     }
 }
 
