@@ -109,6 +109,7 @@ final class TestViewController: UIViewController {
             .filter { cnt in cnt > 0 } // 📌 .filter() : 스위프트 고차함수 filter과 동일하게 사용할 수 있는 operator
             .map { "\($0)" }
             .observe(on: MainScheduler.instance) // 📌 observe(on:) : 특정 스케줄러에서 동작하도록 지정 (MainScheduler.instance : 메인스레드에서 동작)
+            .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .default)) // 📌 subscribe(on:) : (위치랑 상관 없음) 첫번째 동작을 무슨 쓰레드에서 진행할 지 지정
             .subscribe(
                 onNext: { json in
                     self.testView.editView.text = json
