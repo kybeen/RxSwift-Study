@@ -69,18 +69,46 @@ final class TestViewController: UIViewController {
      */
     func downloadJSON(_ url: String) -> Observable<String?> {
 //        return Observable.just("Hello World") // 📌 just() : 1개 값을 전달
-        return Observable.from(["Hello", "World"]) // 📌 from() : 배열의 각 원소를 전달
+//        return Observable.from(["Hello", "World"]) // 📌 from() : 배열의 각 원소를 전달
+        
+        return Observable.create { emitter in
+            let url = URL(string: url)!
+            let task = URLSession.shared.dataTask(with: url) { data, _, err in
+                guard err == nil else {
+                    emitter.onError(err!)
+                    return
+                }
+                
+                if let dat = data, let json = String(data: dat, encoding: .utf8) {
+                    emitter.onNext(json)
+                }
+                
+                emitter.onCompleted()
+            }
+            
+            task.resume()
+            
+            return Disposables.create {
+                task.cancel()
+            }
+        }
     }
     
     // MARK: SYNC
 
+    // ✅ Operator : 데이터가 전달되는 중간에 처리해주는 메서드
     @objc private func onLoad() {
         testView.editView.text = ""
         self.testView.activityIndicator.startAnimating()
         
         downloadJSON(MEMBER_LIST_URL)
             .debug()
-            .observe(on: MainScheduler.instance) // 📌 operator : 데이터가 전달되는 중간에 처리해주는 메서드
+            .map { json in // 📌 .map() : 스위프트 고차함수 map과 동일하게 사용할 수 있는 operator
+                json?.count ?? 0
+            }
+            .filter { cnt in cnt > 0 } // 📌 .filter() : 스위프트 고차함수 filter과 동일하게 사용할 수 있는 operator
+            .map { "\($0)" }
+            .observe(on: MainScheduler.instance) // 📌 observe(on:) : 특정 스케줄러에서 동작하도록 지정 (MainScheduler.instance : 메인스레드에서 동작)
             .subscribe(
                 onNext: { json in
                     self.testView.editView.text = json
