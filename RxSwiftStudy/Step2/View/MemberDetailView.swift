@@ -5,4 +5,120 @@
 //  Created by 김영빈 on 1/8/24.
 //
 
-import Foundation
+import UIKit
+
+final class MemberDetailView: UIView {
+    
+    lazy var headerLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Detail"
+        label.textColor = .black
+        label.font = .systemFont(ofSize: 40, weight: .semibold)
+        return label
+    }()
+    
+    lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "person.circle")
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    lazy var idLabel: UILabel = {
+        let label = UILabel()
+        label.text = "#ID"
+        label.textColor = .lightGray
+        label.font = .systemFont(ofSize: 20)
+        return label
+    }()
+    
+    lazy var nameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Name"
+        label.textColor = .black
+        label.font = .systemFont(ofSize: 35, weight: .semibold)
+        return label
+    }()
+    
+    lazy var jobLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Job"
+        label.textColor = .black
+        label.font = .systemFont(ofSize: 30, weight: .semibold)
+        return label
+    }()
+    
+    lazy var ageLabel: UILabel = {
+        let label = UILabel()
+        label.text = "AGE"
+        label.textColor = .lightGray
+        label.font = .systemFont(ofSize: 25)
+        return label
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = .white
+        setupUI()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    func setupUI() {
+        addSubview(headerLabel)
+        headerLabel.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaLayoutGuide)
+            make.horizontalEdges.equalToSuperview().inset(20)
+        }
+        
+        addSubview(imageView)
+        imageView.snp.makeConstraints { make in
+            make.top.equalTo(headerLabel.snp.bottom).offset(20)
+            make.horizontalEdges.equalToSuperview().inset(20)
+            make.size.equalTo(350)
+        }
+        
+        addSubview(idLabel)
+        idLabel.snp.makeConstraints { make in
+            make.top.equalTo(imageView.snp.bottom).offset(15)
+            make.leading.equalToSuperview().inset(20)
+        }
+        
+        addSubview(nameLabel)
+        nameLabel.snp.makeConstraints { make in
+            make.top.equalTo(imageView.snp.bottom).offset(50)
+            make.centerX.equalToSuperview()
+        }
+        
+        addSubview(jobLabel)
+        jobLabel.snp.makeConstraints { make in
+            make.top.equalTo(imageView.snp.bottom).offset(110)
+            make.centerX.equalToSuperview()
+        }
+        
+        addSubview(ageLabel)
+        ageLabel.snp.makeConstraints { make in
+            make.top.equalTo(imageView.snp.bottom).offset(170)
+            make.centerX.equalToSuperview()
+        }
+    }
+}
+
+// MARK: - 프리뷰 canvas 세팅
+import SwiftUI
+
+struct MemberDetailViewControllerRepresentable: UIViewControllerRepresentable {
+    typealias UIViewControllerType = MemberDetailViewController
+    func makeUIViewController(context: Context) -> MemberDetailViewController {
+        return MemberDetailViewController()
+    }
+    func updateUIViewController(_ uiViewController: MemberDetailViewController, context: Context) {}
+}
+@available(iOS 13.0.0, *)
+struct MemberDetailViewwPreview: PreviewProvider {
+    static var previews: some View {
+        MemberDetailViewControllerRepresentable()
+    }
+}
