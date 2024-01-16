@@ -88,7 +88,7 @@ struct TestViewControllerRepresentable: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: TestViewController, context: Context) {}
 }
 @available(iOS 13.0.0, *)
-struct LoginViewPreview: PreviewProvider {
+struct TestViewPreview: PreviewProvider {
     static var previews: some View {
         TestViewControllerRepresentable()
     }
