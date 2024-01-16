@@ -7,15 +7,17 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
+
 final class MemberItemCell: UITableViewCell {
     
     static let cellIdentifier = "memberItemCell"
+    var disposeBag = DisposeBag()
     
-    lazy var profileImageView: UIImageView = {
+    lazy var avatarImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "person.circle")
         imageView.contentMode = .scaleAspectFit
-        imageView.backgroundColor = .blue
         return imageView
     }()
     
@@ -33,7 +35,7 @@ final class MemberItemCell: UITableViewCell {
         return label
     }()
     
-    lazy var infoLabel: UILabel = {
+    lazy var jobAgeLabel: UILabel = {
         let label = UILabel()
         label.text = "JOB (AGE)"
         label.textColor = .lightGray
@@ -43,7 +45,6 @@ final class MemberItemCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.backgroundColor = .yellow
         setupUI()
     }
     
@@ -52,8 +53,8 @@ final class MemberItemCell: UITableViewCell {
     }
     
     func setupUI() {
-        contentView.addSubview(profileImageView)
-        profileImageView.snp.makeConstraints { make in
+        contentView.addSubview(avatarImageView)
+        avatarImageView.snp.makeConstraints { make in
             make.leading.equalToSuperview()
             make.verticalEdges.equalToSuperview()
             make.size.equalTo(70)
@@ -61,38 +62,55 @@ final class MemberItemCell: UITableViewCell {
         
         contentView.addSubview(verticalStackView)
         verticalStackView.snp.makeConstraints { make in
-            make.leading.equalTo(profileImageView.snp.trailing)
+            make.leading.equalTo(avatarImageView.snp.trailing)
             make.verticalEdges.equalToSuperview().inset(5)
             make.trailing.equalToSuperview()
         }
         
         verticalStackView.addArrangedSubview(nameLabel)
-        verticalStackView.addArrangedSubview(infoLabel)
+        verticalStackView.addArrangedSubview(jobAgeLabel)
         
         nameLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(5)
             make.trailing.equalToSuperview()
         }
-        infoLabel.snp.makeConstraints { make in
+        jobAgeLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(5)
             make.trailing.equalToSuperview()
         }
     }
-}
-
-// MARK: - 프리뷰 canvas 세팅
-import SwiftUI
-
-struct MemberListViewControllerRepresentable: UIViewControllerRepresentable {
-    typealias UIViewControllerType = MemberListViewController
-    func makeUIViewController(context: Context) -> MemberListViewController {
-        return MemberListViewController()
+    
+    func setData(_ data: Member) {
+        loadImage(from: data.avatar)
+            .observe(on: MainScheduler.instance)
+            .bind(to: avatarImageView.rx.image)
+            .disposed(by: disposeBag)
+        avatarImageView.image = nil
+        nameLabel.text = data.name
+        jobAgeLabel.text = "\(data.job) (\(data.age))"
     }
-    func updateUIViewController(_ uiViewController: MemberListViewController, context: Context) {}
-}
-@available(iOS 13.0.0, *)
-struct MemberListViewwPreview: PreviewProvider {
-    static var previews: some View {
-        MemberListViewControllerRepresentable()
+    
+    private func loadImage(from url: String) -> Observable<UIImage?> {
+        return Observable.create { emitter in
+            let task = URLSession.shared.dataTask(with: URL(string: url)!) { data, _, error in
+                if let error = error {
+                    emitter.onError(error)
+                    return
+                }
+                guard let data = data,
+                      let image = UIImage(data: data) else {
+                    emitter.onNext(nil)
+                    emitter.onCompleted()
+                    return
+                }
+                
+                emitter.onNext(image)
+                emitter.onCompleted()
+            }
+            task.resume()
+            return Disposables.create {
+                task.cancel()
+            }
+        }
     }
 }

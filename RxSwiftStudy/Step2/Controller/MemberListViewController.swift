@@ -35,7 +35,7 @@ final class MemberListViewController: UIViewController {
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] members in
                 self?.data = members
-                //TODO: 테이블뷰 reloadData() 처리
+                self?.memberListView.memberListTableView.reloadData()
             })
             .disposed(by: disposeBag)
         
@@ -82,11 +82,13 @@ final class MemberListViewController: UIViewController {
 extension MemberListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MemberItemCell.cellIdentifier, for: indexPath) as! MemberItemCell
+        let item = data[indexPath.row]
+        cell.setData(item)
         return cell
     }
 }
@@ -99,5 +101,22 @@ extension MemberListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
+    }
+}
+
+// MARK: - 프리뷰 canvas 세팅
+import SwiftUI
+
+struct MemberListViewControllerRepresentable: UIViewControllerRepresentable {
+    typealias UIViewControllerType = MemberListViewController
+    func makeUIViewController(context: Context) -> MemberListViewController {
+        return MemberListViewController()
+    }
+    func updateUIViewController(_ uiViewController: MemberListViewController, context: Context) {}
+}
+@available(iOS 13.0.0, *)
+struct MemberListViewwPreview: PreviewProvider {
+    static var previews: some View {
+        MemberListViewControllerRepresentable()
     }
 }

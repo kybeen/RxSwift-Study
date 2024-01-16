@@ -13,13 +13,12 @@ final class MemberListView: UIView {
         let title = UILabel()
         title.text = "Members"
         title.textColor = .black
-        title.font = .systemFont(ofSize: 40, weight: .semibold)
+        title.font = .systemFont(ofSize: 40, weight: .bold)
         return title
     }()
     
     lazy var memberListTableView: UITableView = {
         let tableView = UITableView()
-        tableView.backgroundColor = .red
         return tableView
     }()
     
@@ -36,7 +35,7 @@ final class MemberListView: UIView {
     func setupUI() {
         addSubview(title)
         title.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(30)
+            make.top.equalToSuperview()
             make.horizontalEdges.equalToSuperview().inset(12)
         }
         
