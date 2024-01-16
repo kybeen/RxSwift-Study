@@ -17,9 +17,8 @@ final class MemberDetailView: UIView {
         return label
     }()
     
-    lazy var imageView: UIImageView = {
+    lazy var avatarImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "person.circle")
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -73,8 +72,8 @@ final class MemberDetailView: UIView {
             make.horizontalEdges.equalToSuperview().inset(20)
         }
         
-        addSubview(imageView)
-        imageView.snp.makeConstraints { make in
+        addSubview(avatarImageView)
+        avatarImageView.snp.makeConstraints { make in
             make.top.equalTo(headerLabel.snp.bottom).offset(20)
             make.horizontalEdges.equalToSuperview().inset(20)
             make.size.equalTo(350)
@@ -82,25 +81,25 @@ final class MemberDetailView: UIView {
         
         addSubview(idLabel)
         idLabel.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom).offset(15)
+            make.top.equalTo(avatarImageView.snp.bottom).offset(15)
             make.leading.equalToSuperview().inset(20)
         }
         
         addSubview(nameLabel)
         nameLabel.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom).offset(50)
+            make.top.equalTo(avatarImageView.snp.bottom).offset(50)
             make.centerX.equalToSuperview()
         }
         
         addSubview(jobLabel)
         jobLabel.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom).offset(110)
+            make.top.equalTo(avatarImageView.snp.bottom).offset(110)
             make.centerX.equalToSuperview()
         }
         
         addSubview(ageLabel)
         ageLabel.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom).offset(170)
+            make.top.equalTo(avatarImageView.snp.bottom).offset(170)
             make.centerX.equalToSuperview()
         }
     }

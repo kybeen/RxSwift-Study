@@ -75,8 +75,6 @@ final class MemberListViewController: UIViewController {
             }
         }
     }
-    
-    //TODO: - DetailViewController로 이동 시 detailVC.data에 전달
 }
 
 extension MemberListViewController: UITableViewDataSource {
@@ -96,7 +94,10 @@ extension MemberListViewController: UITableViewDataSource {
 extension MemberListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("select")
+        let memberDetailVC = MemberDetailViewController()
+        let item = data[indexPath.row]
+        memberDetailVC.data = item
+        navigationController?.pushViewController(memberDetailVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
