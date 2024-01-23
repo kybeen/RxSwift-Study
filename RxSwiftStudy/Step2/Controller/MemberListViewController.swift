@@ -41,8 +41,8 @@ final class MemberListViewController: UIViewController {
         
         view.addSubview(memberListView)
         memberListView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide)
-            make.horizontalEdges.bottom.equalToSuperview()
+            make.top.bottom.equalTo(view.safeAreaLayoutGuide)
+            make.horizontalEdges.equalToSuperview()
         }
         memberListView.memberListTableView.register(MemberItemCell.self, forCellReuseIdentifier: MemberItemCell.cellIdentifier)
         memberListView.memberListTableView.dataSource = self

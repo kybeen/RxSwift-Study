@@ -19,11 +19,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else {return}
         window = UIWindow(windowScene: windowScene) // SceneDelegate의 window 프로퍼티에 설정해줌 windowScene을 대입해줌
         
-//        let mainViewController = TestViewController()
-        let mainViewController = UINavigationController(rootViewController: MemberListViewController())
-        window?.rootViewController = mainViewController // rootViewController -> Is Initial View Controller 설정
+        let testViewController = TestViewController()
+        let memberListViewController = UINavigationController(rootViewController: MemberListViewController())
         
+        // 탭바 설정
+        let mainTabBarController = UITabBarController()
+        mainTabBarController.setViewControllers([testViewController, memberListViewController], animated: true)
+        if let items = mainTabBarController.tabBar.items {
+            items[0].selectedImage = UIImage(systemName: "1.circle")
+            items[0].image = UIImage(systemName: "1.circle")
+            items[0].title = "1번"
+            
+            items[1].selectedImage = UIImage(systemName: "2.circle")
+            items[1].image = UIImage(systemName: "2.circle")
+            items[1].title = "2번"
+        }
         
+        window?.rootViewController = mainTabBarController // rootViewController -> Is Initial View Controller 설정
         window?.makeKeyAndVisible() // 화면에 표시
     }
 
