@@ -21,10 +21,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let testViewController = TestViewController()
         let memberListViewController = UINavigationController(rootViewController: MemberListViewController())
+        let subwayViewController = SubwayViewController()
         
         // 탭바 설정
         let mainTabBarController = UITabBarController()
-        mainTabBarController.setViewControllers([testViewController, memberListViewController], animated: true)
+        mainTabBarController.setViewControllers([testViewController, memberListViewController, subwayViewController], animated: true)
         if let items = mainTabBarController.tabBar.items {
             items[0].selectedImage = UIImage(systemName: "1.circle")
             items[0].image = UIImage(systemName: "1.circle")
@@ -33,6 +34,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             items[1].selectedImage = UIImage(systemName: "2.circle")
             items[1].image = UIImage(systemName: "2.circle")
             items[1].title = "2번"
+            
+            items[2].selectedImage = UIImage(systemName: "tram.circle.fill")
+            items[2].image = UIImage(systemName: "tram.circle.fill")
+            items[2].title = "지하철"
         }
         
         window?.rootViewController = mainTabBarController // rootViewController -> Is Initial View Controller 설정
