@@ -71,7 +71,7 @@ final class SubwayView: UIView {
     private func setupUI() {
         addSubview(headerLabel)
         headerLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(30)
+            make.top.equalTo(safeAreaLayoutGuide).inset(30)
             make.horizontalEdges.equalToSuperview().inset(20)
         }
         
