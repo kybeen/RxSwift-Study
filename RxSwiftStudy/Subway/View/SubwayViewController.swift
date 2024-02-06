@@ -36,8 +36,8 @@ final class SubwayViewController: UIViewController {
         viewModel.arrivalInfoObservable
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] arrivalInfoList in
-                self?.subwayView.stationField.text = "\(arrivalInfoList[0].prevStation) ➡️ \(arrivalInfoList[0].station) ➡️ \(arrivalInfoList[0].nextStation)"
-                self?.subwayView.timeLabel.text =  "00초 남았습니다."
+                self?.subwayView.stationLabel.text = "\(arrivalInfoList[0].prevStation) ➡️ \(arrivalInfoList[0].station) ➡️ \(arrivalInfoList[0].nextStation)"
+                self?.subwayView.timeLabel.text =  "\(arrivalInfoList[0].restTime)초 남았습니다."
             })
             .disposed(by: disposeBag)
             
