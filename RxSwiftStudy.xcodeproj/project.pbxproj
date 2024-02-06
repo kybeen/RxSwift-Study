@@ -29,6 +29,7 @@
 		B8652D7B2B72162700433066 /* SubwayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8652D7A2B72162700433066 /* SubwayViewModel.swift */; };
 		B8652D812B726C0E00433066 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = B8652D802B726C0E00433066 /* Secrets.plist */; };
 		B8652D832B726D6400433066 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B8652D822B726D6400433066 /* .gitignore */; };
+		B8652D852B726E0B00433066 /* RxSwiftStudy++Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8652D842B726E0B00433066 /* RxSwiftStudy++Bundle.swift */; };
 		B86992B92B6929E6001ED6DC /* SubwayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86992B82B6929E6001ED6DC /* SubwayView.swift */; };
 		B86992BB2B6929F3001ED6DC /* SubwayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86992BA2B6929F3001ED6DC /* SubwayViewController.swift */; };
 		B8BB4F2D2B566BE500BF23F4 /* MemberItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BB4F2C2B566BE500BF23F4 /* MemberItemCell.swift */; };
@@ -53,6 +54,7 @@
 		B8652D7A2B72162700433066 /* SubwayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubwayViewModel.swift; sourceTree = "<group>"; };
 		B8652D802B726C0E00433066 /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
 		B8652D822B726D6400433066 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		B8652D842B726E0B00433066 /* RxSwiftStudy++Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RxSwiftStudy++Bundle.swift"; sourceTree = "<group>"; };
 		B86992B82B6929E6001ED6DC /* SubwayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubwayView.swift; sourceTree = "<group>"; };
 		B86992BA2B6929F3001ED6DC /* SubwayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubwayViewController.swift; sourceTree = "<group>"; };
 		B8BB4F2C2B566BE500BF23F4 /* MemberItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberItemCell.swift; sourceTree = "<group>"; };
@@ -153,18 +155,19 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		B8652D762B72158A00433066 /* Manager */ = {
+		B8652D762B72158A00433066 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				B8652D772B7215A300433066 /* APIManager.swift */,
+				B8652D842B726E0B00433066 /* RxSwiftStudy++Bundle.swift */,
 			);
-			path = Manager;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		B86992B32B69296F001ED6DC /* Subway */ = {
 			isa = PBXGroup;
 			children = (
-				B8652D762B72158A00433066 /* Manager */,
+				B8652D762B72158A00433066 /* Utils */,
 				B86992B42B69298D001ED6DC /* Model */,
 				B86992B52B692994001ED6DC /* View */,
 				B86992B62B6929A8001ED6DC /* ViewModel */,
@@ -287,6 +290,7 @@
 				B80806A92B46DADB00299F9F /* AppDelegate.swift in Sources */,
 				B8652D7B2B72162700433066 /* SubwayViewModel.swift in Sources */,
 				B80807082B4C3CCF00299F9F /* MemberDetailViewController.swift in Sources */,
+				B8652D852B726E0B00433066 /* RxSwiftStudy++Bundle.swift in Sources */,
 				B80806DB2B46E22900299F9F /* TestViewController.swift in Sources */,
 				B8BB4F2D2B566BE500BF23F4 /* MemberItemCell.swift in Sources */,
 				B8652D782B7215A300433066 /* APIManager.swift in Sources */,
