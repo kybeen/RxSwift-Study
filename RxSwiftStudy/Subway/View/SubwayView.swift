@@ -11,14 +11,6 @@ import SnapKit
 
 final class SubwayView: UIView {
     
-    lazy var stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.alignment = .center
-        stackView.spacing = 20
-        return stackView
-    }()
-    
     lazy var headerLabel: UILabel = {
         let label = UILabel()
         label.text = "현재 역이 어디신가요?"
@@ -43,6 +35,29 @@ final class SubwayView: UIView {
         return button
     }()
     
+    // MARK: - 결과 확인 관련 스택 뷰
+    lazy var resultStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.alignment = .leading
+        stackView.spacing = 10
+        return stackView
+    }()
+    
+    lazy var stationLabel: UILabel = {
+        let label = UILabel()
+        label.text = "이전역 ➡️ 현재역 ➡️ 다음역"
+        label.font = .systemFont(ofSize: 25, weight: .bold)
+        return label
+    }()
+    
+    lazy var timeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "00초 남았습니다."
+        label.font = .systemFont(ofSize: 20)
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
@@ -54,19 +69,33 @@ final class SubwayView: UIView {
     }
     
     private func setupUI() {
-        addSubview(stackView)
-        stackView.snp.makeConstraints { make in
-            make.center.equalToSuperview()
+        addSubview(headerLabel)
+        headerLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(30)
+            make.horizontalEdges.equalToSuperview().inset(20)
         }
         
-        stackView.addArrangedSubview(headerLabel)
-        stackView.addArrangedSubview(stationField)
-        stackView.addArrangedSubview(searchButton)
+        addSubview(stationField)
+        stationField.snp.makeConstraints { make in
+            make.top.equalTo(headerLabel.snp.bottom).offset(20)
+            make.horizontalEdges.equalToSuperview().inset(20)
+        }
         
+        addSubview(searchButton)
         searchButton.snp.makeConstraints { make in
+            make.top.equalTo(stationField.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
             make.width.equalTo(100)
         }
         
+        addSubview(resultStackView)
+        resultStackView.snp.makeConstraints { make in
+            make.top.equalTo(searchButton.snp.bottom).offset(30)
+            make.horizontalEdges.equalToSuperview().inset(20)
+        }
+        
+        resultStackView.addArrangedSubview(stationLabel)
+        resultStackView.addArrangedSubview(timeLabel)
     }
 }
 
