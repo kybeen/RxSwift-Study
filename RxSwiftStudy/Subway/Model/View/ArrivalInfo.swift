@@ -1,5 +1,5 @@
 //
-//  SubwayArrival.swift
+//  ArrivalInfo.swift
 //  RxSwiftStudy
 //
 //  Created by 김영빈 on 2/6/24.
@@ -14,6 +14,13 @@ struct ArrivalInfo {
     var prevStation: String // 이전역
     var nextStation: String // 다음역
     var station: String     // 현재역
+}
+
+extension ArrivalInfo {
+    static func fromArrivalResponseItems(item: RealtimeArrival) -> ArrivalInfo {
+        // TODO: - 이전역, 다음역 ID -> 이름 파싱 작업 필요
+        return ArrivalInfo(restTime: Int(item.barvlDt)!, prevStation: item.statnFid, nextStation: item.statnTid, station: item.statnNm)
+    }
 }
 
 //enum SubwayLine: String {

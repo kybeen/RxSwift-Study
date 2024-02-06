@@ -23,6 +23,10 @@
 		B80807042B4C3CB600299F9F /* MemberListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80807032B4C3CB600299F9F /* MemberListView.swift */; };
 		B80807062B4C3CBF00299F9F /* MemberDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80807052B4C3CBF00299F9F /* MemberDetailView.swift */; };
 		B80807082B4C3CCF00299F9F /* MemberDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80807072B4C3CCF00299F9F /* MemberDetailViewController.swift */; };
+		B8652D6D2B714B8C00433066 /* ArrivalResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8652D6C2B714B8B00433066 /* ArrivalResponse.swift */; };
+		B8652D752B72111C00433066 /* ArrivalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8652D742B72111C00433066 /* ArrivalInfo.swift */; };
+		B8652D782B7215A300433066 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8652D772B7215A300433066 /* APIManager.swift */; };
+		B8652D7B2B72162700433066 /* SubwayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8652D7A2B72162700433066 /* SubwayViewModel.swift */; };
 		B86992B92B6929E6001ED6DC /* SubwayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86992B82B6929E6001ED6DC /* SubwayView.swift */; };
 		B86992BB2B6929F3001ED6DC /* SubwayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86992BA2B6929F3001ED6DC /* SubwayViewController.swift */; };
 		B8BB4F2D2B566BE500BF23F4 /* MemberItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BB4F2C2B566BE500BF23F4 /* MemberItemCell.swift */; };
@@ -41,6 +45,10 @@
 		B80807032B4C3CB600299F9F /* MemberListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberListView.swift; sourceTree = "<group>"; };
 		B80807052B4C3CBF00299F9F /* MemberDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberDetailView.swift; sourceTree = "<group>"; };
 		B80807072B4C3CCF00299F9F /* MemberDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberDetailViewController.swift; sourceTree = "<group>"; };
+		B8652D6C2B714B8B00433066 /* ArrivalResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrivalResponse.swift; sourceTree = "<group>"; };
+		B8652D742B72111C00433066 /* ArrivalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrivalInfo.swift; sourceTree = "<group>"; };
+		B8652D772B7215A300433066 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		B8652D7A2B72162700433066 /* SubwayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubwayViewModel.swift; sourceTree = "<group>"; };
 		B86992B82B6929E6001ED6DC /* SubwayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubwayView.swift; sourceTree = "<group>"; };
 		B86992BA2B6929F3001ED6DC /* SubwayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubwayViewController.swift; sourceTree = "<group>"; };
 		B8BB4F2C2B566BE500BF23F4 /* MemberItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberItemCell.swift; sourceTree = "<group>"; };
@@ -123,9 +131,34 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		B8652D722B7210EA00433066 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B8652D6C2B714B8B00433066 /* ArrivalResponse.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		B8652D732B7210F500433066 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B8652D742B72111C00433066 /* ArrivalInfo.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B8652D762B72158A00433066 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				B8652D772B7215A300433066 /* APIManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		B86992B32B69296F001ED6DC /* Subway */ = {
 			isa = PBXGroup;
 			children = (
+				B8652D762B72158A00433066 /* Manager */,
 				B86992B42B69298D001ED6DC /* Model */,
 				B86992B52B692994001ED6DC /* View */,
 				B86992B62B6929A8001ED6DC /* ViewModel */,
@@ -136,6 +169,8 @@
 		B86992B42B69298D001ED6DC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B8652D732B7210F500433066 /* View */,
+				B8652D722B7210EA00433066 /* Network */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -152,6 +187,7 @@
 		B86992B62B6929A8001ED6DC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				B8652D7A2B72162700433066 /* SubwayViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -241,14 +277,18 @@
 				B80806D92B46E21700299F9F /* TestView.swift in Sources */,
 				B86992B92B6929E6001ED6DC /* SubwayView.swift in Sources */,
 				B80806A92B46DADB00299F9F /* AppDelegate.swift in Sources */,
+				B8652D7B2B72162700433066 /* SubwayViewModel.swift in Sources */,
 				B80807082B4C3CCF00299F9F /* MemberDetailViewController.swift in Sources */,
 				B80806DB2B46E22900299F9F /* TestViewController.swift in Sources */,
 				B8BB4F2D2B566BE500BF23F4 /* MemberItemCell.swift in Sources */,
+				B8652D782B7215A300433066 /* APIManager.swift in Sources */,
 				B86992BB2B6929F3001ED6DC /* SubwayViewController.swift in Sources */,
+				B8652D6D2B714B8C00433066 /* ArrivalResponse.swift in Sources */,
 				B80807042B4C3CB600299F9F /* MemberListView.swift in Sources */,
 				B80806AB2B46DADB00299F9F /* SceneDelegate.swift in Sources */,
 				B80807002B4C3C9B00299F9F /* MemberListViewController.swift in Sources */,
 				B80807062B4C3CBF00299F9F /* MemberDetailView.swift in Sources */,
+				B8652D752B72111C00433066 /* ArrivalInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

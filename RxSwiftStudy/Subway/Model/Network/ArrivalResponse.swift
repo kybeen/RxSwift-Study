@@ -1,13 +1,13 @@
 //
-//  ArrivalInfo.swift
+//  ArrivalResponse.swift
 //  RxSwiftStudy
 //
 //  Created by 김영빈 on 2/6/24.
 //
 
-import Foundation
-
 // MARK: - 네트워크 통신용 모델
+
+import Foundation
 
 /**
  ArrivalResponse
