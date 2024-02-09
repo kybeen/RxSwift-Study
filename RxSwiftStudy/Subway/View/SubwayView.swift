@@ -14,14 +14,14 @@ final class SubwayView: UIView {
     lazy var headerLabel: UILabel = {
         let label = UILabel()
         label.text = "현재 역이 어디신가요?"
-        label.font = .systemFont(ofSize: 40, weight: .bold)
+        label.font = .systemFont(ofSize: 35, weight: .bold)
         return label
     }()
     
     lazy var stationField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "역을 입력해주세요."
-        textField.font = .systemFont(ofSize: 30)
+        textField.font = .systemFont(ofSize: 25)
         return textField
     }()
     
@@ -39,14 +39,16 @@ final class SubwayView: UIView {
     lazy var resultStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.alignment = .leading
-        stackView.spacing = 10
+        stackView.alignment = .center
+        stackView.spacing = 50
         return stackView
     }()
     
     lazy var stationLabel: UILabel = {
         let label = UILabel()
         label.text = "이전역 ➡️ 현재역 ➡️ 다음역"
+        label.numberOfLines = 0
+        label.textAlignment = .center
         label.font = .systemFont(ofSize: 25, weight: .bold)
         return label
     }()
@@ -54,6 +56,7 @@ final class SubwayView: UIView {
     lazy var timeLabel: UILabel = {
         let label = UILabel()
         label.text = "00초 남았습니다."
+        label.textAlignment = .center
         label.font = .systemFont(ofSize: 20)
         return label
     }()

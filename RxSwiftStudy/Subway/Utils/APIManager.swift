@@ -19,7 +19,6 @@ class APIManager {
     // MARK: - API 호출 메서드
     static func fetchRealtimeArrival(stationName: String, onComplete: @escaping (Result<Data, Error>) -> Void) {
         let ArrivalUrl = "http://swopenAPI.seoul.go.kr/api/subway/\(Bundle.main.SUBWAY_API_KEY)/json/realtimeStationArrival/\(REQ_START_IDX)/\(REQ_END_IDX)/\(stationName)"
-        print("요청 URL: \(ArrivalUrl)")
         
         URLSession.shared.dataTask(with: URL(string: ArrivalUrl)!) { (data, response, error) in
             if let error = error {
