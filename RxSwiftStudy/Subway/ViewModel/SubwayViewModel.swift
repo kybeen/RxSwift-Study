@@ -59,6 +59,7 @@ class SubwayViewModel {
             
             var dataArr = dataEncoded.components(separatedBy: "\n")
             dataArr.removeFirst()
+            dataArr.removeLast()
             for row in dataArr {
                 let rowData = row.components(separatedBy: ",")[0..<4]
                 let subwayID = rowData[0]       // 호선ID
