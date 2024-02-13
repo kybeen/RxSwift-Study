@@ -25,19 +25,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // 탭바 설정
         let mainTabBarController = UITabBarController()
-        mainTabBarController.setViewControllers([testViewController, memberListViewController, subwayViewController], animated: true)
+        mainTabBarController.setViewControllers([subwayViewController, testViewController, memberListViewController], animated: true)
         if let items = mainTabBarController.tabBar.items {
-            items[0].selectedImage = UIImage(systemName: "1.circle")
-            items[0].image = UIImage(systemName: "1.circle")
-            items[0].title = "1번"
+            items[0].selectedImage = UIImage(systemName: "tram.circle.fill")
+            items[0].image = UIImage(systemName: "tram.circle.fill")
+            items[0].title = "지하철"
             
-            items[1].selectedImage = UIImage(systemName: "2.circle")
-            items[1].image = UIImage(systemName: "2.circle")
-            items[1].title = "2번"
+            items[1].selectedImage = UIImage(systemName: "1.circle")
+            items[1].image = UIImage(systemName: "1.circle")
+            items[1].title = "Rx테스트1"
             
-            items[2].selectedImage = UIImage(systemName: "tram.circle.fill")
-            items[2].image = UIImage(systemName: "tram.circle.fill")
-            items[2].title = "지하철"
+            items[2].selectedImage = UIImage(systemName: "2.circle")
+            items[2].image = UIImage(systemName: "2.circle")
+            items[2].title = "Rx테스트2"
         }
         
         window?.rootViewController = mainTabBarController // rootViewController -> Is Initial View Controller 설정
