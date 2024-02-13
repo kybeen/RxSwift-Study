@@ -9,19 +9,38 @@
 
 import Foundation
 
+// 지하철 도착 정보
 struct ArrivalInfo {
-    var restTime: Int       // 남은 시간 (단위: 초)
-    var prevStation: String // 이전역
-    var nextStation: String // 다음역
-    var station: String     // 현재역
+    var restTime: RestTimeSecond    // 남은 시간 (단위: 초)
+    var prevStation: String         // 이전역
+    var nextStation: String         // 다음역
+    var station: String             // 현재역
+}
+
+// 남은 시간
+struct RestTimeSecond: CustomStringConvertible {
+    var second: Int
+    
+    var description: String {
+        return "\(second/60)분\(second%60)초"
+    }
 }
 
 extension ArrivalInfo {
+    
+    // API로부터 실시간 도착 정보 응답을 받은 뒤, RealtimeArrival 값을 기반으로 ArrivalInfo를 만들어 리턴해주는 타입 메서드
     static func fromArrivalResponseItems(item: RealtimeArrival) -> ArrivalInfo {
-        // TODO: - 이전역, 다음역 ID -> 이름 파싱 작업 필요
-        return ArrivalInfo(restTime: Int(item.barvlDt)!, prevStation: item.statnFid, nextStation: item.statnTid, station: item.statnNm)
+        return ArrivalInfo(
+            restTime: RestTimeSecond(second: Int(item.barvlDt)!),
+            prevStation: item.statnFid,
+            nextStation: item.statnTid,
+            station: item.statnNm
+        )
     }
 }
+
+
+
 
 //enum SubwayLine: String {
 //    case 1001 = "1호선"

@@ -42,7 +42,7 @@ final class SubwayViewController: UIViewController {
                 let station = arrivalInfoList[0].station
                 
                 self?.subwayView.stationLabel.text = "\(prevStation!) ➡️ \(station) ➡️ \(nextStation!)"
-                self?.subwayView.timeLabel.text =  "\(arrivalInfoList[0].restTime)초 남았습니다."
+                self?.subwayView.timeLabel.text =  "\(arrivalInfoList[0].restTime) 남았습니다."
             })
             .disposed(by: disposeBag)
             
