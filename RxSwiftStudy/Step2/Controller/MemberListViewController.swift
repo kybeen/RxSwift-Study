@@ -106,18 +106,7 @@ extension MemberListViewController: UITableViewDelegate {
 }
 
 // MARK: - 프리뷰 canvas 세팅
-import SwiftUI
-
-struct MemberListViewControllerRepresentable: UIViewControllerRepresentable {
-    typealias UIViewControllerType = MemberListViewController
-    func makeUIViewController(context: Context) -> MemberListViewController {
-        return MemberListViewController()
-    }
-    func updateUIViewController(_ uiViewController: MemberListViewController, context: Context) {}
-}
-@available(iOS 13.0.0, *)
-struct MemberListViewwPreview: PreviewProvider {
-    static var previews: some View {
-        MemberListViewControllerRepresentable()
-    }
+@available(iOS 17.0.0, *)
+#Preview {
+    MemberListViewController()
 }

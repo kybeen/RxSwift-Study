@@ -106,18 +106,7 @@ final class MemberDetailView: UIView {
 }
 
 // MARK: - 프리뷰 canvas 세팅
-import SwiftUI
-
-struct MemberDetailViewControllerRepresentable: UIViewControllerRepresentable {
-    typealias UIViewControllerType = MemberDetailViewController
-    func makeUIViewController(context: Context) -> MemberDetailViewController {
-        return MemberDetailViewController()
-    }
-    func updateUIViewController(_ uiViewController: MemberDetailViewController, context: Context) {}
-}
-@available(iOS 13.0.0, *)
-struct MemberDetailViewwPreview: PreviewProvider {
-    static var previews: some View {
-        MemberDetailViewControllerRepresentable()
-    }
+@available(iOS 17.0.0, *)
+#Preview {
+    MemberDetailViewController()
 }

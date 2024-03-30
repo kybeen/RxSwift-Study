@@ -78,18 +78,7 @@ final class TestView: UIView {
 
 
 // MARK: - 프리뷰 canvas 세팅
-import SwiftUI
-
-struct TestViewControllerRepresentable: UIViewControllerRepresentable {
-    typealias UIViewControllerType = TestViewController
-    func makeUIViewController(context: Context) -> TestViewController {
-        return TestViewController()
-    }
-    func updateUIViewController(_ uiViewController: TestViewController, context: Context) {}
-}
-@available(iOS 13.0.0, *)
-struct TestViewPreview: PreviewProvider {
-    static var previews: some View {
-        TestViewControllerRepresentable()
-    }
+@available(iOS 17.0.0, *)
+#Preview {
+    TestViewController()
 }

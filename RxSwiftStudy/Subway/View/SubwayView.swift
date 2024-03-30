@@ -103,18 +103,7 @@ final class SubwayView: UIView {
 }
 
 // MARK: - 프리뷰 canvas 세팅
-import SwiftUI
-
-struct SubwayViewControllerRepresentable: UIViewControllerRepresentable {
-    typealias UIViewControllerType = SubwayViewController
-    func makeUIViewController(context: Context) -> SubwayViewController {
-        return SubwayViewController()
-    }
-    func updateUIViewController(_ uiViewController: SubwayViewController, context: Context) {}
-}
-@available(iOS 13.0.0, *)
-struct SubwayViewViewPreview: PreviewProvider {
-    static var previews: some View {
-        SubwayViewControllerRepresentable()
-    }
+@available(iOS 17.0.0, *)
+#Preview {
+    SubwayViewController()
 }
