@@ -27,28 +27,42 @@ final class RxViewController: UIViewController {
         
         /*
          - https://babbab2.tistory.com/187
-         
+         - just, of, from, create
          */
 //        let observable = Observable.just([1,2,3,4]) // 1개의 item만 방출하는 Observable Sequence 생성
 //        let observable = Observable.of([1,2], [3,4], [5,6]) // 1개 이상의 item을 방출하는 Observable Sequence 생성
 //        let observable = Observable.from([1, 2, 3, 4, 5]) // 파라미터로 하나의 배열만 받을 수 있고, 그 배열의 요소들을 순서대로 방출하는 Observable Sequence를 생성
-        let observable = Observable<String>.create { observer in // Observer를 매개변수로 받는 클로저를 파라미터로 전달받는 Observable Sequence를 생성
-            observer.onNext("1번째 방출")
-            observer.onNext("2번째 방출")
-            observer.onCompleted() // 이벤트 종료
-            observer.onNext("3번째 방출") // 앞에서 이벤트가 종료되었기 때문에 해당 이벤트는 방출되지x
-            return Disposables.create() // 반드시 Disposable을 생성해서 리턴해줘야 함
-        }
-        observable.subscribe(
-            onNext: { data in
-                print(data)
-            },
-            onCompleted: {
-                print("Completed!!")
-            },
-            onDisposed: {
-                print("Disposed!!")
-            })
+//        let observable = Observable<String>.create { observer in // Observer를 매개변수로 받는 클로저를 파라미터로 전달받는 Observable Sequence를 생성
+//            observer.onNext("1번째 방출")
+//            observer.onNext("2번째 방출")
+//            observer.onCompleted() // 이벤트 종료
+//            observer.onNext("3번째 방출") // 앞에서 이벤트가 종료되었기 때문에 해당 이벤트는 방출되지x
+//            return Disposables.create() // 반드시 Disposable을 생성해서 리턴해줘야 함
+//        }
+        /*
+         - https://babbab2.tistory.com/188
+         - empty, never, range, interval, timer, defer
+         */
+//        let observable = Observable<Void>.empty() // 어떠한 item도 방출(emit)하지 않고, 즉시 onCompleted()를 호출하여 정상적으로 종료되는 Observable을 생성
+//        let observable = Observable<Void>.never() // 어떠한 item도 방출(emit)하지 않고, 스트림이 종료되지도 않는 Observable을 생성
+//        let observable = Observable.range(start: 0, count: 5) // 특정 범위의 “정수”를 순서대로 방출하는 Observable을 생성
+//        let observable = Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.instance) // 주어진 시간 간격으로 순서대로 정수를 방출하는 Observable을 생성
+//        let observable = Observable<Int>.timer(.seconds(3), scheduler: MainScheduler.instance) // 주어진 딜레이 시간 이후에 특정 item을 방출하는 Observable을 생성
+//        let observable = Observable<Int>.timer(
+//            .seconds(3),
+//            period: .seconds(1), // 지연이 끝난 이후 다음 값이 생성되는 주기
+//            scheduler: MainScheduler.instance
+//        )
+//        observable.subscribe(
+//            onNext: { data in
+//                print(data)
+//            },
+//            onCompleted: {
+//                print("Completed!!")
+//            },
+//            onDisposed: {
+//                print("Disposed!!")
+//            })
         
 //        /*
 //         - https://babbab2.tistory.com/186
