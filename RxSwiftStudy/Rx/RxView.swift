@@ -18,6 +18,13 @@ final class RxView: UIView {
         return button
     }()
     
+    lazy var rxDieButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("위 버튼 구독 해제", for: .normal)
+        button.setTitleColor(.red, for: .normal)
+        return button
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -32,6 +39,12 @@ final class RxView: UIView {
         addSubview(rxButton)
         rxButton.snp.makeConstraints { make in
             make.center.equalToSuperview()
+        }
+        
+        addSubview(rxDieButton)
+        rxDieButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(rxButton.snp.bottom).offset(20)
         }
     }
 }
