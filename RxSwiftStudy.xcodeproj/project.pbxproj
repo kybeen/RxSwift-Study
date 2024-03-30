@@ -31,6 +31,8 @@
 		B86992B92B6929E6001ED6DC /* SubwayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86992B82B6929E6001ED6DC /* SubwayView.swift */; };
 		B86992BB2B6929F3001ED6DC /* SubwayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86992BA2B6929F3001ED6DC /* SubwayViewController.swift */; };
 		B8BB4F2D2B566BE500BF23F4 /* MemberItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BB4F2C2B566BE500BF23F4 /* MemberItemCell.swift */; };
+		B8CA321D2BB80AA800ED624A /* RxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CA321C2BB80AA800ED624A /* RxViewController.swift */; };
+		B8CA32212BB80B4E00ED624A /* RxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CA32202BB80B4E00ED624A /* RxView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -70,6 +72,8 @@
 		B86992B82B6929E6001ED6DC /* SubwayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubwayView.swift; sourceTree = "<group>"; };
 		B86992BA2B6929F3001ED6DC /* SubwayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubwayViewController.swift; sourceTree = "<group>"; };
 		B8BB4F2C2B566BE500BF23F4 /* MemberItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberItemCell.swift; sourceTree = "<group>"; };
+		B8CA321C2BB80AA800ED624A /* RxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxViewController.swift; sourceTree = "<group>"; };
+		B8CA32202BB80B4E00ED624A /* RxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,7 @@
 				B80806DA2B46E22900299F9F /* TestViewController.swift */,
 				B80806FC2B4C3C3900299F9F /* Step2 */,
 				B86992B32B69296F001ED6DC /* Subway */,
+				B8CA321B2BB80A8B00ED624A /* Rx */,
 				B80806B12B46DADD00299F9F /* Assets.xcassets */,
 				B80806B32B46DADD00299F9F /* LaunchScreen.storyboard */,
 				B80806B62B46DADD00299F9F /* Info.plist */,
@@ -211,6 +216,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		B8CA321B2BB80A8B00ED624A /* Rx */ = {
+			isa = PBXGroup;
+			children = (
+				B8CA321C2BB80AA800ED624A /* RxViewController.swift */,
+				B8CA32202BB80B4E00ED624A /* RxView.swift */,
+			);
+			path = Rx;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -296,6 +310,7 @@
 			files = (
 				B80806D92B46E21700299F9F /* TestView.swift in Sources */,
 				B86992B92B6929E6001ED6DC /* SubwayView.swift in Sources */,
+				B8CA321D2BB80AA800ED624A /* RxViewController.swift in Sources */,
 				B80806A92B46DADB00299F9F /* AppDelegate.swift in Sources */,
 				B8652D7B2B72162700433066 /* SubwayViewModel.swift in Sources */,
 				B80807082B4C3CCF00299F9F /* MemberDetailViewController.swift in Sources */,
@@ -305,6 +320,7 @@
 				B8652D782B7215A300433066 /* APIManager.swift in Sources */,
 				B86992BB2B6929F3001ED6DC /* SubwayViewController.swift in Sources */,
 				B8652D6D2B714B8C00433066 /* ArrivalResponse.swift in Sources */,
+				B8CA32212BB80B4E00ED624A /* RxView.swift in Sources */,
 				B80807042B4C3CB600299F9F /* MemberListView.swift in Sources */,
 				B80806AB2B46DADB00299F9F /* SceneDelegate.swift in Sources */,
 				B80807002B4C3C9B00299F9F /* MemberListViewController.swift in Sources */,

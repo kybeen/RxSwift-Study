@@ -19,25 +19,30 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else {return}
         window = UIWindow(windowScene: windowScene) // SceneDelegate의 window 프로퍼티에 설정해줌 windowScene을 대입해줌
         
+        let rxViewController = RxViewController()
         let testViewController = TestViewController()
         let memberListViewController = UINavigationController(rootViewController: MemberListViewController())
         let subwayViewController = SubwayViewController()
         
         // 탭바 설정
         let mainTabBarController = UITabBarController()
-        mainTabBarController.setViewControllers([subwayViewController, testViewController, memberListViewController], animated: true)
+        mainTabBarController.setViewControllers([rxViewController, subwayViewController, testViewController, memberListViewController], animated: true)
         if let items = mainTabBarController.tabBar.items {
-            items[0].selectedImage = UIImage(systemName: "tram.circle.fill")
-            items[0].image = UIImage(systemName: "tram.circle.fill")
-            items[0].title = "지하철"
+            items[0].selectedImage = UIImage(systemName: "graduationcap.circle")
+            items[0].image = UIImage(systemName: "graduationcap.circle")
+            items[0].title = "Rx공부용"
             
-            items[1].selectedImage = UIImage(systemName: "1.circle")
-            items[1].image = UIImage(systemName: "1.circle")
-            items[1].title = "Rx테스트1"
+            items[1].selectedImage = UIImage(systemName: "tram.circle.fill")
+            items[1].image = UIImage(systemName: "tram.circle.fill")
+            items[1].title = "지하철"
             
-            items[2].selectedImage = UIImage(systemName: "2.circle")
-            items[2].image = UIImage(systemName: "2.circle")
-            items[2].title = "Rx테스트2"
+            items[2].selectedImage = UIImage(systemName: "1.circle")
+            items[2].image = UIImage(systemName: "1.circle")
+            items[2].title = "Rx테스트1"
+            
+            items[3].selectedImage = UIImage(systemName: "2.circle")
+            items[3].image = UIImage(systemName: "2.circle")
+            items[3].title = "Rx테스트2"
         }
         
         window?.rootViewController = mainTabBarController // rootViewController -> Is Initial View Controller 설정
